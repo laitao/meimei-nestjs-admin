@@ -8,7 +8,6 @@
  * You can you up，no can no bb！！
  */
 
-
 import { Module } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { LoginController } from './login.controller';
@@ -20,19 +19,17 @@ import { MenuModule } from '../system/menu/menu.module';
 import { LogModule } from '../monitor/log/log.module';
 
 @Module({
-    imports: [
-        JwtModule.register({
-            secret: jwtConstants.secret,
-            signOptions: { expiresIn: '168h' },
-        }),
-        AuthModule,
-        UserModule,
-        MenuModule,
-        LogModule
-    ],
-    controllers: [
-        LoginController,],
-    providers: [
-        LoginService,],
+  imports: [
+    JwtModule.register({
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '168h' },
+    }),
+    AuthModule,
+    UserModule,
+    MenuModule,
+    LogModule,
+  ],
+  controllers: [LoginController],
+  providers: [LoginService],
 })
-export class LoginModule { }
+export class LoginModule {}

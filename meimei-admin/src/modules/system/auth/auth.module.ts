@@ -8,7 +8,6 @@
  * You can you up，no can no bb！！
  */
 
-
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { UserModule } from '../user/user.module';
@@ -17,12 +16,9 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
-    imports: [
-        UserModule,
-        PassportModule,
-    ],
-    controllers: [],
-    providers: [AuthService, LocalStrategy, JwtStrategy],
-    exports: [AuthService],
+  imports: [UserModule, PassportModule],
+  controllers: [],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
+  exports: [AuthService],
 })
-export class AuthModule { }
+export class AuthModule {}
