@@ -16,6 +16,7 @@ const service = axios.create({
   // 超时
   timeout: 10000
 })
+console.log('process.env.VUE_APP_BASE_API==', process.env.VUE_APP_BASE_API)
 // request拦截器
 service.interceptors.request.use(config => {
   // 是否需要设置 token

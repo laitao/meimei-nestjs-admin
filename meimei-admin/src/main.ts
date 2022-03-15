@@ -6,7 +6,9 @@ import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/all-exception.filter';
 import { setupSwagger } from './setup-swagger';
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: true,
+  });
 
   /* 全局异常过滤器 */
   app.useGlobalFilters(new AllExceptionsFilter()); // 全局异常过滤器
@@ -26,7 +28,7 @@ async function bootstrap() {
   setupSwagger(app);
 
   /* 监听启动端口 */
-  await app.listen(3000);
+  await app.listen(3008);
 
   /* 打印swagger地址 */
   console.log('http://127.0.0.1:3000/doc/admin/swagger-api');

@@ -10,7 +10,6 @@ import { UserService } from './user.service';
  * You can you up，no can no bb！！
  */
 
-
 import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
@@ -21,20 +20,18 @@ import { storage } from 'src/modules/common/upload/upload.module';
 import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([User]),
-        forwardRef(() => RoleModule),
-        PostModule,
-        DeptModule,
-        MulterModule.register({
-            storage: storage,
-            preservePath: false,
-        })
-    ],
-    controllers: [
-        UserController,],
-    providers: [
-        UserService],
-    exports: [UserService]
+  imports: [
+    TypeOrmModule.forFeature([User]),
+    forwardRef(() => RoleModule),
+    PostModule,
+    DeptModule,
+    MulterModule.register({
+      storage: storage,
+      preservePath: false,
+    }),
+  ],
+  controllers: [UserController],
+  providers: [UserService],
+  exports: [UserService],
 })
-export class UserModule { }
+export class UserModule {}

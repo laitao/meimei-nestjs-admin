@@ -20,7 +20,7 @@ export default defineConfig({
     port: process.env.MYSQL_PORT || 3306,
     username: process.env.MYSQL_USERNAME || 'root',
     password: process.env.MYSQL_PASSWORD || '123456',
-    database: process.env.MYSQL_DATABASE || 'mei-mei',
+    database: process.env.MYSQL_DATABASE || 'test',
     autoLoadModels: true,
     synchronize: true,
     logging: false,
@@ -28,13 +28,13 @@ export default defineConfig({
   // redis cache config
   redis: {
     config: {
-      url: 'redis://localhost:6379/0'
-    }
+      url: 'redis://localhost:6379/0',
+    },
   },
 
   bullRedis: {
     host: 'localhost',
-    port: '6379'
+    port: '6379',
   },
 
   isDemoEnvironment: false,
